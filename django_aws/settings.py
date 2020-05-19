@@ -73,8 +73,12 @@ WSGI_APPLICATION = 'django_aws.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'aws rds data_base_name',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'aws rds host',
+        'PORT': '5432',
     }
 }
 
@@ -113,6 +117,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 # custom Auth Config
 
@@ -128,3 +133,10 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
+
+AWS_ACCESS_KEY_ID = 'YOUR_ACCESS_KEY_HERE'
+AWS_SECRET_ACCESS_KEY = 'YOUR_SECRET_ACCESS_KEY_HERE'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_STORAGE_BUCKET_NAME = 'insert-your-bucket-name-here'
+AWS_S3_REGION_NAME = 'eu-west-2'

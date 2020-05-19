@@ -1,4 +1,43 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-
+<div class="bg">
+  <div class="profile-div">
+    <div class="profile-card">
+      <div class="card-heading"></div>
+      <div class="card-body">
+        <h2 class="title">User Profile Details</h2>
+        <div class="row">
+          <img src="{% static 'img/bg-head-02.jpg' %}">
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="row mgbt-xs-0">
+              <label class="col-xs-5 control-label">First Name:</label>
+              <div class="col-xs-7 controls">{{ request.user.first_name }}</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="row mgbt-xs-0">
+              <label class="col-xs-5 control-label">Last Name:</label>
+              <div class="col-xs-7 controls">{{ request.user.last_name }}</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="row mgbt-xs-0">
+              <label class="col-xs-5 control-label">User Full Name:</label>
+              <div class="col-xs-7 controls">{{ request.user.first_name }} {{ request.user.last_name }}</div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="row mgbt-xs-0">
+              <label class="col-xs-5 control-label">Email:</label>
+              <div class="col-xs-7 controls">{{ request.user.email }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

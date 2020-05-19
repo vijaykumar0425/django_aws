@@ -1,3 +1,40 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="bg">
+  <div class="profile-div">
+    <div class="profile-card">
+      <div class="card-heading"></div>
+      <div class="card-body">
+        <h2 class="title">User Signup</h2>
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="input-group">
+            <input class="input--style-1" type="file" placeholder="Profile" name="profile_image">
+          </div>
+          {% if error.email %}
+          <p class="form-error">{{ error.email }}</p>
+          {% endif %}
+          <div class="input-group">
+            <input class="input--style-1" type="email" placeholder="Email" name="email">
+          </div>
+          <div class="input-group">
+            <input class="input--style-1" type="text" placeholder="First Name" name="first_name">
+          </div>
+          <div class="input-group">
+            <input class="input--style-1" type="text" placeholder="Last Name" name="last_name">
+          </div>
+          <div class="input-group">
+            <input class="input--style-1" type="password" placeholder="Password" name="password">
+          </div>
+          <div class="input-group">
+            <input class="input--style-1" type="password" placeholder="Conform Password" name="conform_password">
+          </div>
+          <div class="p-t-20">
+            <button class="btn btn--radius btn--green" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
